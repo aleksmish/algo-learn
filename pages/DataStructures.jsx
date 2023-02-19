@@ -7,7 +7,6 @@ import DetailsHeader from '../components/DetailsHeader'
 import { useNavigation } from '@react-navigation/native'
 import { SHADOWS } from '../constants/theme'
 
-
 const ListElementDataStructure = ({ data }) => {
   console.log("LISTELEMENT")
   console.log(data)
@@ -31,7 +30,6 @@ const ListElementDataStructure = ({ data }) => {
     </TouchableOpacity>
     )
   }
-  
 
 const DataStructures = ({ route, navigation }) => {
   console.log('------')

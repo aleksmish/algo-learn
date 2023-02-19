@@ -1,15 +1,19 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
-import { SIZES } from '../constants'
+import { SIZES, SectionData, assets } from '../constants'
 
-const DataStructureVisualization = () => {
+const DataStructureVisualization = ({ data }) => {
   return (
     <View style={{ 
       width: "100%", 
       height: 300,
-      marginBottom: SIZES.extraLarge,
+      marginBottom: SIZES.extraLarge
       }}>
-      <Text>DataStructureVisualization</Text>
+      <Image 
+        source={data}
+        resizeMode="center"
+        style={{ width: "100%", height: "100%" }}
+      />
     </View>
   )
 }

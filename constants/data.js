@@ -4,78 +4,171 @@ export const SectionData = [
   {
     title: "Data Structures",
     info: "Data structures are ways of organizing and storing data efficiently. Examples include arrays, linked lists, trees, and graphs.",
-    topics: [{
-        name: "Array",
-        details: "An array is a linear data structure that stores elements of the same data type in contiguous memory locations. It can be used to store and access elements quickly, but can become slow for large datasets. The size of an array must be determined at the time of creation and cannot be changed once defined.",
+    topics: [
+      {
+        name: "Stack",
+        details: "A Stack is an abstract data type that represents a collection of elements, where elements are added and removed according to a last-in-first-out (LIFO) principle. In other words, the last element added to the stack is the first one to be removed.\nThe operations that can be performed on a stack are:\n1. Push: Adds an element to the top of the stack.\n2. Pop: Removes and returns the top element from the stack.\n3. Peek/Top: Returns the top element of the stack without removing it.\n4. isEmpty: Returns true if the stack is empty, false otherwise.",
         code:
-`const array = [1, 2, 3, 4, 5] // initialization O(n) time
-array[0] // lookup O(1) time
-array[0] = 1 // reassigning O(1) time`,
+`class Stack:
+def __init__(self):
+    self.items = []
+
+def push(self, item):
+    self.items.append(item)
+
+def pop(self):
+    if self.is_empty():
+        return None
+    return self.items.pop()
+
+def peek(self):
+    if self.is_empty():
+        return None
+    return self.items[-1]
+
+def is_empty(self):
+    return len(self.items) == 0`,
+        image: assets.stack
+      },
+      {
+        name: "Queue",
+        details: "A Queue is an abstract data type that represents a collection of elements, where elements are added at the rear end and removed from the front end according to a first-in-first-out (FIFO) principle. In other words, the first element added to the queue is the first one to be removed.\nThe operations that can be performed on a queue are:\n1. Enqueue: Adds an element to the rear end of the queue.\n2. Dequeue: Removes and returns the front element from the queue.\n3. Peek/Front: Returns the front element of the queue without removing it.\n4. isEmpty: Returns true if the queue is empty, false otherwise.",
+        code:
+`from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.items = deque()
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        if self.is_empty():
+            return None
+        return self.items.popleft()
+
+    def peek(self):
+        if self.is_empty():
+            return None
+        return self.items[0]
+
+    def is_empty(self):
+        return len(self.items) == 0`,
+        image: assets.queue,
       },
       {
         name: "Linked List",
-        details: "A linked list is a linear data structure that consists of a list of nodes, where each node contains an element and a pointer to the next node. Linked lists can be used to store and access elements dynamically, but can be slower than arrays for random access of elements. Linked lists can also be used to implement stacks, queues, and other data structures.",
+        details: "A linked list is a dynamic data structure used to store a sequence of elements, called nodes. Each node in a linked list contains two components: the data or value, and a reference or pointer to the next node in the sequence. The first node in the sequence is called the head, while the last node is called the tail. Unlike arrays and other static data structures, linked lists can be resized during program execution. To add or remove an element from a linked list, we simply update the next pointer of the previous node or the current node to point to the new node, or to the node after the removed node, respectively. This makes linked lists efficient for certain operations, such as insertion and deletion, but can make accessing an element in the middle of a linked list slower than accessing an element in an array. Linked lists come in different varieties, including singly linked lists, where each node has a reference to the next node, but not to the previous node; doubly linked lists, where each node has a reference to the next and previous nodes; and circular linked lists, where the last node points back to the head, forming a circle.",
         code:
-`class Node {
-  constructor(data) {
-    this.data = data;
-    this.next = null;
-  }
-}
+`class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-  add(data) {
-    const node = new Node(data);
+    def add(self, data):
+        new_node = Node(data)
 
-    if (!this.head) {
-      this.head = node;
-      this.tail = node;
-    } else {
-      this.tail.next = node;
-      this.tail = node;
-    }
+        if self.head is None:
+            self.head = new_node
+        else:
+            current_node = self.head
+            while current_node.next is not None:
+                current_node = current_node.next
+            current_node.next = new_node
 
-    this.length += 1;
-  }
+    def remove(self, data):
+        if self.head is None:
+            return
 
-  get(index) {
-    if (index < 0 || index >= this.length) return null;
+        if self.head.data == data:
+            self.head = self.head.next
+            return
 
-    let current = this.head;
-    for (let i = 0; i < index; i += 1) {
-      current = current.next;
-    }
+        current_node = self.head
+        while current_node.next is not None:
+            if current_node.next.data == data:
+                current_node.next = current_node.next.next
+                return
+            current_node = current_node.next
 
-    return current;
-  }
+    def search(self, data):
+        current_node = self.head
+        while current_node is not None:
+            if current_node.data == data:
+                return current_node
+            current_node = current_node.next
 
-  remove(index) {
-    if (index < 0 || index >= this.length) return null;
-
-    if (index === 0) {
-      this.head = this.head.next;
-    } else {
-      const previous = this.get(index - 1);
-      previous.next = previous.next.next;
-    }
-
-    this.length -= 1;
-  }
-}`,
+        return None`,
+        image: assets.linkedlist
       },
       {
         name: "Tree",
         details: "A tree is a hierarchical data structure that consists of nodes connected by edges. Each node has a parent and zero or more children. The topmost node is called the root and the nodes without children are called leaves. Trees are often used to implement data structures such as directories in file systems, parse trees in compilers, and decision trees in artificial intelligence.",
+        code: 
+`class TreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.children = []
+
+class Tree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, data, parent=None):
+        new_node = TreeNode(data)
+
+        if parent is None:
+            if self.root is not None:
+                raise ValueError("Tree already has a root node")
+            self.root = new_node
+        else:
+            parent.children.append(new_node)
+
+    def search(self, data):
+        return self._search_helper(data, self.root)
+
+    def _search_helper(self, data, current_node):
+        if current_node is None:
+            return None
+
+        if current_node.data == data:
+            return current_node
+
+        for child in current_node.children:
+            result = self._search_helper(data, child)
+            if result is not None:
+                return result
+
+        return None`,
+        image: assets.tree
       },
       {
         name: "Graph",
         details: "A graph is a non-linear data structure that consists of nodes connected by edges. Graphs can be used to represent networks, such as road networks, social networks, and computer networks. Graphs can also be used to represent relationships between elements, such as dependencies in software systems.",
+        code: 
+`class Graph:
+    def __init__(self):
+        self.vertices = {}
+    
+    def add_vertex(self, vertex):
+        if vertex not in self.vertices:
+            self.vertices[vertex] = set()
+    
+    def add_edge(self, start, end):
+        if start in self.vertices and end in self.vertices:
+            self.vertices[start].add(end)
+    
+    def get_neighbors(self, vertex):
+        if vertex in self.vertices:
+            return self.vertices[vertex]
+        else:
+            return set()`,
+        image: assets.graph
       },],
     image: assets.dataStrucutres,
   },

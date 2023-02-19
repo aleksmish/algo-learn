@@ -6,7 +6,7 @@ const Code = ({ route }) => {
   const data = route.params
   console.log(data)
   return (
-    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} >
+    <ScrollView style={{ flex: 1, padding:SIZES.base/2 }} showsVerticalScrollIndicator={false} >
       <CodeBlock code={data.code}/>
     </ScrollView>
   )

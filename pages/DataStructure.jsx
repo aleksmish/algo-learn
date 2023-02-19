@@ -4,17 +4,20 @@ import DataStructureVisualization from '../components/DataStructureVisualization
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { COLORS, FONTS, SIZES, assets } from '../constants'
-import { processFontFamily } from 'expo-font'
 import Code from '../components/Code'
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 const Details = ({ route }) => {
+  console.log("DETAILS")
+  const tabBarHeight = useBottomTabBarHeight(); 
   const data = route.params
   return (
-    <SafeAreaView style={{ flex: 1, padding: SIZES.font }}>
-      <Text style={{
-        fontFamily: FONTS.medium,
-        
-      }}>{data.details}</Text>
+    <SafeAreaView style={{ flex: 1, padding: SIZES.base }} >
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Text style={{
+          fontFamily: FONTS.medium,
+        }}>{data.details}</Text>
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -27,7 +30,7 @@ const DataStructure = ({ route }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }} >
-      <DataStructureVisualization />
+      <DataStructureVisualization data={data.image}/>
 
         <Tab.Navigator
           screenOptions={{ 

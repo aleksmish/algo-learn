@@ -1,9 +1,8 @@
-import { View, Text, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { COLORS, SIZES } from '../constants'
-import { SubInfo, Tags, Title } from './SubInfo'
-import { SHADOWS } from '../constants/theme'
+import { COLORS, SIZES, SHADOWS } from '../constants'
+import { Title } from './SubInfo'
 import { RectButton } from './Button'
 
 const Section = ({ data }) => {
@@ -43,10 +42,9 @@ const Section = ({ data }) => {
         <View style={{
           marginTop: SIZES.font,
           flexDirection: "row",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           alignItems: "center",
         }}>
-          <Tags/>
           <RectButton
             minWidth={120}
             fontSize={SIZES.font}
@@ -54,7 +52,6 @@ const Section = ({ data }) => {
           />
         </View>
       </View>
-
 
     </View>
   )
