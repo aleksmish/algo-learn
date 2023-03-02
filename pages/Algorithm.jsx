@@ -3,25 +3,30 @@ import React from 'react'
 import { COLORS, FONTS, SIZES, assets } from '../constants'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import DataStructureVisualization from '../components/DataStructureVisualization'
 import Code from '../components/Code'
+import DetailsHeader from '../components/DetailsHeader'
+import { ScrollView } from 'react-native'
 
 const Details = ({ route }) => {
   const data = route.params
   return (
     <SafeAreaView style={{ flex: 1, padding: SIZES.font }}>
-      <Text>{data.details}</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Text style={{
+          fontFamily: FONTS.medium,
+        }}>{data.details}</Text>
+      </ScrollView>
     </SafeAreaView>
   )
 } 
 
-const Algorithm = ({ route }) => {
+const Algorithm = ({ route, navigation }) => {
   const { data } = route.params
   const Tab = createBottomTabNavigator()
-  console.log(data)
+
   return (
     <SafeAreaView style={{ flex: 1 }} >
-      <DataStructureVisualization />
+      <DetailsHeader data={data} navigation={navigation} title={data.name}/>
 
         <Tab.Navigator
           screenOptions={{ 

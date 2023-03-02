@@ -7,8 +7,10 @@ import details from '../assets/icons/details.png'
 import tree from '../assets/images/tree.png'
 import stack from '../assets/images/stack.png'
 import queue from '../assets/images/queue.png'
-import linkedlist from '../assets/images/linkedlist1.png'
+import linkedList from '../assets/images/linkedlist.png'
 import graph from '../assets/images/graph.png'
+import bubbleSort from '../assets/images/bubble_sort.png'
+import selectionSort from '../assets/images/selection_sort.png'
 
 export default {
   dataStrucutres,
@@ -20,6 +22,8 @@ export default {
   tree,
   stack,
   queue,
-  linkedlist,
-  graph
+  linkedList,
+  graph,
+  bubbleSort,
+  selectionSort
 }

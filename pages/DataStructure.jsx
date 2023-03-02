@@ -6,13 +6,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { COLORS, FONTS, SIZES, assets } from '../constants'
 import Code from '../components/Code'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import DetailsHeader from '../components/DetailsHeader'
 
 const Details = ({ route }) => {
   console.log("DETAILS")
   const tabBarHeight = useBottomTabBarHeight(); 
   const data = route.params
   return (
-    <SafeAreaView style={{ flex: 1, padding: SIZES.base }} >
+    <SafeAreaView style={{ flex: 1, padding: SIZES.font }} >
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={{
           fontFamily: FONTS.medium,
@@ -22,15 +23,14 @@ const Details = ({ route }) => {
   )
 }
 
-const DataStructure = ({ route }) => {
+const DataStructure = ({ route, navigation }) => {
   const { data } = route.params
-  console.log(data)
 
   const Tab = createBottomTabNavigator()
 
   return (
     <SafeAreaView style={{ flex: 1 }} >
-      <DataStructureVisualization data={data.image}/>
+      <DetailsHeader data={data} navigation={navigation} title={data.name}/>
 
         <Tab.Navigator
           screenOptions={{ 
