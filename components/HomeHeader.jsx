@@ -26,7 +26,7 @@ const HomeHeader = () => {
           <Image
             source={assets.logo}
             resizeMode="contain"
-            style={{ width: 40, height: 25 }}
+            style={{ width: 40, height: 40, tintColor: COLORS.light }}
           />
           <Text
             style={{
