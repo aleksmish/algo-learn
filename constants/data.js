@@ -21,8 +21,7 @@ Stacks can be implemented using arrays or linked lists. Some common applications
 1. Expression evaluation: Stacks can be used to evaluate arithmetic expressions by converting infix notation to postfix notation and then evaluating the postfix expression using a stack.
 2. Function calls: Stacks can be used to keep track of function calls in computer programs, with each function call being pushed onto the stack and popped off when the function returns.
 3. Undo operations: Stacks can be used to implement undo operations in computer programs, with each change being pushed onto the stack and popped off to undo the changes.`,
-        code:
-`class Stack:
+        code: `class Stack:
 def __init__(self):
     self.items = []
 
@@ -41,7 +40,7 @@ def peek(self):
 
 def is_empty(self):
     return len(self.items) == 0`,
-        image: assets.stack
+        image: assets.stack,
       },
       {
         name: "Queue",
@@ -59,8 +58,7 @@ Queues can also be implemented using arrays or linked lists. Some common applica
 1. Resource allocation: Queues can be used to allocate resources to processes in computer systems, with each process being added to the queue and serviced in order.
 2. Job scheduling: Queues can be used to schedule jobs in computer systems, with each job being added to the queue and executed in order.
 3. Breadth-first search: Queues can be used to perform breadth-first search in graphs and trees, with each node being added to the queue and explored in order.`,
-        code:
-`from collections import deque
+        code: `from collections import deque
 
 class Queue:
     def __init__(self):
@@ -101,8 +99,7 @@ However, linked lists also have some disadvantages, including:
 2. Extra memory for pointers: Linked lists require extra memory to store the pointers to the next and/or previous nodes.
 
 Linked lists can be used for a variety of purposes, including implementing stacks, queues, and hash tables. They are an important data structure in computer science and are used in many algorithms and applications.`,
-        code:
-`class Node:
+        code: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -145,7 +142,7 @@ class LinkedList:
             current_node = current_node.next
 
         return None`,
-        image: assets.linkedList
+        image: assets.linkedList,
       },
       {
         name: "Tree",
@@ -165,8 +162,7 @@ There are several types of trees, including:
 5. B-tree: A tree in which each node can have multiple children and the keys in each node are in sorted order.
 
 Trees can be used for a variety of purposes, including searching, sorting, and organizing data. They are an important data structure in computer science and are used in many algorithms and applications.`,
-        code: 
-`class TreeNode:
+        code: `class TreeNode:
     def __init__(self, data):
         self.data = data
         self.children = []
@@ -201,7 +197,7 @@ class Tree:
                 return result
 
         return None`,
-        image: assets.tree
+        image: assets.tree,
       },
       {
         name: "Graph",
@@ -228,8 +224,7 @@ There are several algorithms that can be used with graphs, including:
 5. Bellman-Ford algorithm: A shortest path algorithm that can handle negative edge weights.
 
 Graphs are an important data structure in computer science and are used in many applications.`,
-        code: 
-`class Graph:
+        code: `class Graph:
     def __init__(self):
         self.vertices = {}
     
@@ -246,8 +241,9 @@ Graphs are an important data structure in computer science and are used in many 
             return self.vertices[vertex]
         else:
             return set()`,
-        image: assets.graph
-      },],
+        image: assets.graph,
+      },
+    ],
     image: assets.dataStrucutres,
   },
   {
@@ -265,8 +261,7 @@ Here's how the algorithm works:
 2. Move to the next pair of adjacent elements and repeat step 1, continuing until the end of the list is reached.
 
 Bubble sort has a time complexity of O(n^2) in the worst case, where n is the number of elements in the list. It is not efficient for large datasets and is generally used only for educational purposes or on small datasets. However, it is a simple and easy-to-understand algorithm that can be useful in certain situations.`,
-          code: 
-`def bubble_sort(arr):
+          code: `def bubble_sort(arr):
     n = len(arr)
     
     for i in range(n):
@@ -275,7 +270,7 @@ Bubble sort has a time complexity of O(n^2) in the worst case, where n is the nu
                 arr[j], arr[j+1] = arr[j+1], arr[j]
                 
     return arr`,
-          image: assets.bubbleSort
+          image: assets.bubbleSort,
         },
         {
           name: "Selection Sort",
@@ -289,8 +284,7 @@ Here's how the algorithm works:
 4. Repeat steps 1-3 until the entire list is sorted.
 
 Selection sort has a time complexity of O(n^2) in the worst case, where n is the number of elements in the list. It is not as efficient as other sorting algorithms like merge sort or quicksort, but it has the advantage of requiring only a small amount of additional memory. It is also a stable sorting algorithm, meaning that it preserves the relative order of equal elements in the input list.`,
-          code: 
-`def selection_sort(arr):
+          code: `def selection_sort(arr):
   n = len(arr)
   for i in range(n):
       min_idx = i
@@ -299,7 +293,7 @@ Selection sort has a time complexity of O(n^2) in the worst case, where n is the
               min_idx = j
       arr[i], arr[min_idx] = arr[min_idx], arr[i]
   return arr`,
-          image: assets.selectionSort
+          image: assets.selectionSort,
         },
         {
           name: "Insertion Sort",
@@ -312,8 +306,7 @@ Here's how the algorithm works:
 3. Continue this process for each subsequent element in the list, comparing it to the elements that come before it and swapping as necessary.
 
 Insertion sort has a time complexity of O(n^2) in the worst case, where n is the number of elements in the list. However, it is more efficient than other quadratic sorting algorithms like bubble sort, especially on small datasets or partially sorted datasets. It is also an in-place sorting algorithm, meaning it doesn't require any extra memory to sort the list.`,
-          code:
-`def insertion_sort(arr):
+          code: `def insertion_sort(arr):
   n = len(arr)
   for i in range(1, n):
       key = arr[i]
@@ -323,7 +316,7 @@ Insertion sort has a time complexity of O(n^2) in the worst case, where n is the
           j -= 1
       arr[j+1] = key
   return arr`,
-          image: assets.insertionSort
+          image: assets.insertionSort,
         },
         {
           name: "Heap Sort",
@@ -338,8 +331,7 @@ Here's how the algorithm works:
 To build a binary heap from an array, we can use a bottom-up approach known as heapify. Starting at the middle of the array, we can heapify each subtree in reverse order until we reach the root of the heap.
 
 Heap sort has a time complexity of O(n log n) in the worst case, where n is the number of elements in the list. It is not as fast as some other sorting algorithms like quicksort, but it has the advantage of being an in-place sorting algorithm with a worst-case time complexity that is guaranteed to be O(n log n). It is also a stable sorting algorithm if implemented with a stable version of heapify.`,
-          code:
-`def heapify(arr, n, i):
+          code: `def heapify(arr, n, i):
     largest = i
     l = 2 * i + 1
     r = 2 * i + 2
@@ -361,7 +353,8 @@ Heap sort has a time complexity of O(n log n) in the worst case, where n is the 
     for i in range(n - 1, 0, -1):
         arr[0], arr[i] = arr[i], arr[0]
         heapify(arr, i, 0)
-    return arr`
+    return arr`,
+          image: assets.heapSort,
         },
         {
           name: "Merge Sort",
@@ -376,8 +369,7 @@ Here's how the algorithm works:
 To merge two sorted arrays, we can use a two-pointer approach. We start with two pointers pointing to the first element of each array, and we compare the values at the two pointers. We then append the smaller value to a new array, and move the corresponding pointer to the next element in its array. We repeat this process until we have appended all elements from both arrays to the new array.
 
 Merge sort has a time complexity of \nO(n log n) in the worst case, where n is the number of elements in the list. It is a stable sorting algorithm, meaning that it preserves the relative order of equal elements in the input list. It is also a parallelizable algorithm, meaning that it can be easily parallelized to take advantage of multi-core processors. However, it requires additional memory to store the subarrays during the sorting process.`,
-          code:
-`def merge(arr, left, right):
+          code: `def merge(arr, left, right):
 i = j = k = 0
 while i < len(left) and j < len(right):
     if left[i] < right[j]:
@@ -405,7 +397,8 @@ if n > 1:
     merge_sort(left)
     merge_sort(right)
     merge(arr, left, right)
-return arr`
+return arr`,
+          image: assets.mergeSort,
         },
         {
           name: "Quicksort",
@@ -421,16 +414,16 @@ There are several ways to choose a pivot element, but one common approach is to 
 To partition the array, we can use a two-pointer approach. We start with two pointers, i and j, pointing to the first and last elements of the array, respectively. We then move i to the right until we find an element greater than or equal to the pivot, and move j to the left until we find an element less than or equal to the pivot. We then swap the elements at i and j, and repeat this process until i and j cross each other.
 
 Quicksort has a time complexity of O(n log n) on average and O(n^2) in the worst case, where n is the number of elements in the list. The worst case occurs when the pivot element is chosen poorly, resulting in highly unbalanced partitions. However, quicksort is often faster than other comparison-based sorting algorithms like merge sort and heap sort in practice, especially when the input array is large or partially sorted. It is also an in-place sorting algorithm, meaning that it does not require additional memory to store subarrays during the sorting process.`,
-          code:
-`def quicksort(arr):
+          code: `def quicksort(arr):
 if len(arr) <= 1:
     return arr
 else:
     pivot = arr[0]
     less = [x for x in arr[1:] if x <= pivot]
     greater = [x for x in arr[1:] if x > pivot]
-    return quicksort(less) + [pivot] + quicksort(greater)`
-        }
+    return quicksort(less) + [pivot] + quicksort(greater)`,
+          image: assets.quickSort,
+        },
       ],
       Searching: [
         {
@@ -443,12 +436,12 @@ else:
 4. If the end of the list is reached without finding the target element, return -1 to indicate failure.
 
 Linear search has a time complexity of O(n), where n is the number of elements in the list. It is a simple algorithm that works for unsorted lists, but it can be slow for large lists or when the target element is near the end of the list.`,
-          code:
-`def linear_search(arr, target):
+          code: `def linear_search(arr, target):
 for i in range(len(arr)):
     if arr[i] == target:
         return i
-return -1`
+return -1`,
+          image: assets.linearSearch,
         },
         {
           name: "Binary Search",
@@ -465,8 +458,7 @@ Here's how it works:
 To implement binary search, the input array must be sorted in ascending or descending order.
 
 Binary search has a time complexity of O(log n), where n is the number of elements in the list. It is a much faster algorithm than linear search for large lists, and is especially useful when the input array is sorted. However, binary search requires that the input array be sorted, and it may not be applicable or efficient for unsorted arrays.`,
-          code:
-`def binary_search(arr, target):
+          code: `def binary_search(arr, target):
 left = 0
 right = len(arr) - 1
 while left <= right:
@@ -477,8 +469,9 @@ while left <= right:
         left = mid + 1
     else:
         right = mid - 1
-return -1`
-        }
+return -1`,
+          image: assets.binarySearch,
+        },
       ],
       Graph: [
         {
@@ -493,8 +486,7 @@ Here's how BFS works:
 4. Repeat steps 2-3 until the queue is empty.
 
 BFS can be used to find the shortest path between two nodes in an unweighted graph, since it explores all the neighboring nodes at a given depth before moving on to the next depth.`,
-          code:
-`from collections import deque
+          code: `from collections import deque
 
 def bfs(graph, start):
     visited = set()
@@ -504,7 +496,8 @@ def bfs(graph, start):
         if vertex not in visited:
             visited.add(vertex)
             queue.extend(graph[vertex] - visited)
-    return visited`
+    return visited`,
+          image: assets.bfs,
         },
         {
           name: "Depth-First Search",
@@ -518,14 +511,14 @@ Here's how DFS works:
 4. Repeat steps 2-3 until the stack is empty.
 
 DFS can be used to find all the connected components in a graph or to explore all the nodes in a tree.`,
-          code:
-`def dfs(graph, start, visited=None):
+          code: `def dfs(graph, start, visited=None):
 if visited is None:
     visited = set()
 visited.add(start)
 for next_vertex in graph[start] - visited:
     dfs(graph, next_vertex, visited)
-return visited`
+return visited`,
+          image: assets.dfs,
         },
         {
           name: "Bellmon-Ford Algorithm",
@@ -538,21 +531,21 @@ Here's how Bellman-Ford works:
 3. Check for negative cycles. If a negative cycle is found, then the algorithm reports that the graph contains a negative cycle.
 
 Bellman-Ford has a time complexity of O(VE), where V is the number of nodes in the graph and E is the number of edges in the graph.`,
-          code:
-`def bellman_ford(graph, start):
-distances = {vertex: float('infinity') for vertex in graph}
-distances[start] = 0
+          code: `def bellman_ford(graph, start):
+dist = {v: float('inf') for v in graph}
+dist[start] = 0
 for _ in range(len(graph) - 1):
-    for vertex in graph:
-        for neighbor, weight in graph[vertex].items():
-            new_distance = distances[vertex] + weight
-            if new_distance < distances[neighbor]:
-                distances[neighbor] = new_distance
-for vertex in graph:
-    for neighbor, weight in graph[vertex].items():
-        if distances[vertex] + weight < distances[neighbor]:
+    for v in graph:
+        for n, w in graph[v].items():
+            d = dist[v] + w
+            if d < dist[n]:
+                dist[n] = d
+for v in graph:
+    for n, w in graph[v].items():
+        if dist[v] + w < dist[n]:
             raise ValueError("Negative weight cycle detected")
-return distances`
+return dist`,
+          image: assets.bellmonFord,
         },
         {
           name: "Dijkstra's Algorithm",
@@ -568,26 +561,25 @@ Here's how Dijkstra works:
 • If the distance to a neighbor is updated, add the neighbor to the priority queue.
 
 Dijkstra has a time complexity of O((V+E)logV), where V is the number of nodes in the graph and E is the number of edges in the graph. The logV factor comes from the time required to maintain the priority queue.`,
-          code:
-`import heapq
+          code: `import heapq
 
 def dijkstra(graph, start):
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0
-    queue = [(0, start)]
-    while queue:
-        current_distance, current_vertex = heapq.heappop(queue)
-        if current_distance > distances[current_vertex]:
+    dist = {v: float('inf') for v in graph}
+    dist[start] = 0
+    q = [(0, start)]
+    while q:
+        cur_dist, cur_v = heapq.heappop(q)
+        if cur_dist > dist[cur_v]:
             continue
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(queue, (distance, neighbor))
-    return distances`
-        }
-      ]
-
+        for n, w in graph[cur_v].items():
+            d = cur_dist + w
+            if d < dist[n]:
+                dist[n] = d
+                heapq.heappush(q, (d, n))
+return dist`,
+          image: assets.dijkstra,
+        },
+      ],
     },
     image: assets.algorithms,
   },

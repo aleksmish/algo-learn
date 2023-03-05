@@ -1,7 +1,7 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
-import { COLORS, SIZES } from '../constants'
-import { FONTS, SHADOWS } from '../constants/theme'
+import { Text, TouchableOpacity, Image } from "react-native";
+import React from "react";
+import { COLORS, SIZES } from "../constants";
+import { FONTS, SHADOWS } from "../constants/theme";
 
 export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
   return (
@@ -25,8 +25,36 @@ export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
         style={{ width: 34, height: 34 }}
       />
     </TouchableOpacity>
-  )
-}
+  );
+};
+
+export const ModalButton = ({ imgUrl, handlePress, ...props }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        width: 40,
+        height: 40,
+        backgroundColor: COLORS.light,
+        position: "absolute",
+        borderRadius: SIZES.extraLarge,
+        alignItems: "center",
+        justifyContent: "center",
+        opacity: 0.4,
+        zIndex: 3,
+        elevation: 3,
+        ...SHADOWS.dark,
+        ...props,
+      }}
+      onPress={handlePress}
+    >
+      <Image
+        source={imgUrl}
+        resizeMode="contain"
+        style={{ width: 20, height: 20 }}
+      />
+    </TouchableOpacity>
+  );
+};
 
 export const RectButton = ({ minWidth, fontSize, handlePress }) => {
   return (
@@ -39,14 +67,16 @@ export const RectButton = ({ minWidth, fontSize, handlePress }) => {
       }}
       onPress={handlePress}
     >
-      <Text style={{
-        fontFamily: FONTS.semiBold,
-        fontSize: fontSize,
-        color: COLORS.light,
-        textAlign: "center",
-      }}>
+      <Text
+        style={{
+          fontFamily: FONTS.semiBold,
+          fontSize: fontSize,
+          color: COLORS.light,
+          textAlign: "center",
+        }}
+      >
         Go
       </Text>
     </TouchableOpacity>
-  )
-}
+  );
+};

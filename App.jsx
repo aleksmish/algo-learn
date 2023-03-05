@@ -1,23 +1,25 @@
-import { DefaultTheme, NavigationContainer, StackActions } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, Text, View } from 'react-native';
-import { useFonts } from 'expo-font'
-import Algorithms from './pages/Algorithms';
-import DataStructures from './pages/DataStructures';
-import Home from './pages/Home';
-import { SectionData } from './constants';
-import DataStructure from './pages/DataStructure';
-import Algorithm from './pages/Algorithm';
+import {
+  DefaultTheme,
+  NavigationContainer,
+} from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from "expo-font";
+import Algorithms from "./pages/Algorithms";
+import DataStructures from "./pages/DataStructures";
+import Home from "./pages/Home";
+import { SectionData } from "./constants";
+import DataStructure from "./pages/DataStructure";
+import Algorithm from "./pages/Algorithm";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: "transparent"
-  }
-}
+    background: "transparent",
+  },
+};
 
 export default function App() {
   const [loaded] = useFonts({
@@ -28,36 +30,31 @@ export default function App() {
     InterLight: require("./assets/fonts/Inter-Light.ttf"),
   });
 
-  if(!loaded) return null;
+  if (!loaded) return null;
 
   const algorithms = Object.values(SectionData[1].topics)
-  .reduce((prev, current) => prev.concat(Object.values(current)), [])
-  .map(algorithm => algorithm.name);
-  
+    .reduce((prev, current) => prev.concat(Object.values(current)), [])
+    .map((algorithm) => algorithm.name);
+
   return (
     <NavigationContainer theme={theme}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}
-      initialRouteName="Home">
-        <Stack.Screen name="Home" component={ Home } />
-        <Stack.Screen name="Algorithms" component={ Algorithms } />
-        <Stack.Screen name="Data Structures" component={ DataStructures } />
-        {SectionData[0].topics.map(item => ( 
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Home"
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Algorithms" component={Algorithms} />
+        <Stack.Screen name="Data Structures" component={DataStructures} />
+        {SectionData[0].topics.map((item) => (
           <Stack.Screen
             key={item.name}
             name={item.name}
-            component={ DataStructure }
+            component={DataStructure}
           />
         ))}
-        {
-          algorithms.map(item => (
-            <Stack.Screen
-              key={item}
-              name={item}
-              component={ Algorithm }
-            />
-          ))
-        }
-      
+        {algorithms.map((item) => (
+          <Stack.Screen key={item} name={item} component={Algorithm} />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
   );

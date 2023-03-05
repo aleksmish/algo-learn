@@ -1,12 +1,10 @@
-import React from 'react'
-import { useIsFocused } from '@react-navigation/native'
-import { StatusBar } from 'expo-status-bar'
+import React from "react";
+import { useIsFocused } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 const FocusedStatusBar = (props) => {
-  const isFocused = useIsFocused()
-  return (
-    isFocused ? <StatusBar animated={true} {...props}/> : null
-  )
-}
+  const isFocused = useIsFocused();
+  return isFocused ? <StatusBar animated={true} {...props} /> : null;
+};
 
-export default FocusedStatusBar
+export default FocusedStatusBar;

@@ -1,28 +1,81 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { SIZES } from '../constants';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { SIZES, assets } from "../constants";
+import Modal from "react-native-modal";
+import { ModalButton } from "./Button";
+import * as Clipboard from "expo-clipboard";
+
+const ExpandedCode = ({ data, toggleModal, isModalVisible }) => {
+  return (
+    <Modal
+      isVisible={isModalVisible}
+      onBackButtonPress={toggleModal}
+      onBackdropPress={toggleModal}
+      animationIn={"zoomIn"}
+      animationOut={"zoomOut"}
+      animationInTiming={350}
+      animationOutTiming={350}
+    >
+      <View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <CodeBlock code={data.code} />
+        </ScrollView>
+      </View>
+    </Modal>
+  );
+};
 
 const Code = ({ route }) => {
-  const data = route.params
-  console.log(data)
+  const data = route.params;
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [isTextCopied, setTextCopied] = useState(false);
+
+  const copyToClipboard = async (text) => {
+    setTextCopied(true);
+    await Clipboard.setStringAsync(text);
+    setTimeout(() => {
+      setTextCopied(false);
+    }, 2500);
+  };
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
   return (
-    <ScrollView style={{ flex: 1, padding:SIZES.base/2 }} showsVerticalScrollIndicator={false} >
-      <CodeBlock code={data.code}/>
-    </ScrollView>
-  )
-}
+    <View style={{ flex: 1, padding: SIZES.base / 2 }}>
+      <ModalButton
+        imgUrl={isTextCopied ? assets.success : assets.copy}
+        handlePress={() => copyToClipboard(data.code)}
+        top={SIZES.font}
+        right={SIZES.font * 4.5}
+      />
+      <ModalButton
+        imgUrl={assets.expand}
+        handlePress={toggleModal}
+        top={SIZES.font}
+        right={SIZES.font}
+      />
+      <ExpandedCode
+        data={data}
+        toggleModal={toggleModal}
+        isModalVisible={isModalVisible}
+      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <CodeBlock code={data.code} />
+      </ScrollView>
+    </View>
+  );
+};
 
 const CodeBlock = ({ code }) => {
   const [lineCount, setLineCount] = useState(1);
 
-  const handleNewLine = text => {
-    console.log(text)
-    const lines = text.split('\n');
+  const handleNewLine = (text) => {
+    const lines = text.split("\n");
     setLineCount(lines.length);
   };
 
-  const commentRegex = /(\/\/.*)/;
-  
   return (
     <View style={styles.container}>
       <View style={styles.lineNumbers}>
@@ -35,7 +88,9 @@ const CodeBlock = ({ code }) => {
       <View style={styles.code}>
         <Text
           style={styles.codeText}
-          onTextLayout={({ nativeEvent: { lines } }) => handleNewLine(lines.join('\n'))}
+          onTextLayout={({ nativeEvent: { lines } }) =>
+            handleNewLine(lines.join("\n"))
+          }
         >
           {code}
         </Text>
@@ -46,8 +101,8 @@ const CodeBlock = ({ code }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    backgroundColor: '#282c34',
+    flexDirection: "row",
+    backgroundColor: "#282c34",
     padding: SIZES.base,
     borderRadius: SIZES.font,
   },
@@ -57,14 +112,14 @@ const styles = StyleSheet.create({
   },
   lineNumber: {
     lineHeight: SIZES.large,
-    color: '#abb2bf',
+    color: "#abb2bf",
     fontSize: SIZES.small,
   },
   code: {
     paddingLeft: SIZES.base,
   },
   codeText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: SIZES.small,
     lineHeight: SIZES.large,
   },
