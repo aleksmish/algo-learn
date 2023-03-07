@@ -271,6 +271,7 @@ Bubble sort has a time complexity of O(n^2) in the worst case, where n is the nu
                 
     return arr`,
           image: assets.bubbleSort,
+          complexities: ["O(n^2)", "O(n^2)", "O(n)", "O(1)"],
         },
         {
           name: "Selection Sort",
@@ -294,6 +295,7 @@ Selection sort has a time complexity of O(n^2) in the worst case, where n is the
       arr[i], arr[min_idx] = arr[min_idx], arr[i]
   return arr`,
           image: assets.selectionSort,
+          complexities: ["O(n^2)", "O(n^2)", "O(n^2)", "O(1)"],
         },
         {
           name: "Insertion Sort",
@@ -317,6 +319,7 @@ Insertion sort has a time complexity of O(n^2) in the worst case, where n is the
       arr[j+1] = key
   return arr`,
           image: assets.insertionSort,
+          complexities: ["O(n^2)", "O(n^2)", "O(n)", "O(1)"],
         },
         {
           name: "Heap Sort",
@@ -355,6 +358,7 @@ Heap sort has a time complexity of O(n log n) in the worst case, where n is the 
         heapify(arr, i, 0)
     return arr`,
           image: assets.heapSort,
+          complexities: ["O(n log n)", "O(n log n)", "O(n log n)", "O(1)"],
         },
         {
           name: "Merge Sort",
@@ -399,6 +403,7 @@ if n > 1:
     merge(arr, left, right)
 return arr`,
           image: assets.mergeSort,
+          complexities: ["O(n log n)", "O(n log n)", "O(n log n)", "O(n)"],
         },
         {
           name: "Quicksort",
@@ -423,6 +428,7 @@ else:
     greater = [x for x in arr[1:] if x > pivot]
     return quicksort(less) + [pivot] + quicksort(greater)`,
           image: assets.quickSort,
+          complexities: ["O(n^2)", "O(n log n)", "O(n log n)", "O(log n)"],
         },
       ],
       Searching: [
@@ -442,6 +448,7 @@ for i in range(len(arr)):
         return i
 return -1`,
           image: assets.linearSearch,
+          complexities: ["O(n)", "O(n)", "O(1)", "O(1)"],
         },
         {
           name: "Binary Search",
@@ -471,6 +478,7 @@ while left <= right:
         right = mid - 1
 return -1`,
           image: assets.binarySearch,
+          complexities: ["O(log n)", "O(log n)", "O(1)", "O(1)"],
         },
       ],
       Graph: [
@@ -498,6 +506,7 @@ def bfs(graph, start):
             queue.extend(graph[vertex] - visited)
     return visited`,
           image: assets.bfs,
+          complexities: ["O(V + E)", "O(V + E)", "O(V + E)", "O(V)"],
         },
         {
           name: "Depth-First Search",
@@ -519,6 +528,7 @@ for next_vertex in graph[start] - visited:
     dfs(graph, next_vertex, visited)
 return visited`,
           image: assets.dfs,
+          complexities: ["O(V + E)", "O(V + E)", "O(V + E)", "O(V)"],
         },
         {
           name: "Bellmon-Ford Algorithm",
@@ -546,6 +556,7 @@ for v in graph:
             raise ValueError("Negative weight cycle detected")
 return dist`,
           image: assets.bellmonFord,
+          complexities: ["O(VE)", "O(VE)", "O(V + E)", "O(V)"],
         },
         {
           name: "Dijkstra's Algorithm",
@@ -578,6 +589,12 @@ def dijkstra(graph, start):
                 heapq.heappush(q, (d, n))
 return dist`,
           image: assets.dijkstra,
+          complexities: [
+            "O((V + E) log V)",
+            "O((V + E) log V)",
+            "O(V + E)",
+            "O(V)",
+          ],
         },
       ],
     },

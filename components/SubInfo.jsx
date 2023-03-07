@@ -27,14 +27,6 @@ export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
   );
 };
 
-export const Tags = () => {
-  return (
-    <View style={{ flexDirection: "row" }}>
-      <Text></Text>
-    </View>
-  );
-};
-
 export const SubInfo = () => {
   return (
     <View

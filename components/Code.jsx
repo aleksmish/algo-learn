@@ -13,8 +13,8 @@ const ExpandedCode = ({ data, toggleModal, isModalVisible }) => {
       onBackdropPress={toggleModal}
       animationIn={"zoomIn"}
       animationOut={"zoomOut"}
-      animationInTiming={350}
-      animationOutTiming={350}
+      animationInTiming={50}
+      animationOutTiming={50}
     >
       <View>
         <ScrollView showsVerticalScrollIndicator={false}>

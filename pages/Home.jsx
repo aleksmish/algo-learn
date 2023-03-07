@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FocusedStatusBar from "../components/FocusedStatusBar";
 import { COLORS, SectionData } from "../constants";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import HomeHeader from "../components/HomeHeader";
 import Section from "../components/Section";
 

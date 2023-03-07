@@ -1,28 +1,12 @@
-import { Text, Image, ScrollView } from "react-native";
+import { Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 import Code from "../components/Code";
 import DetailsHeader from "../components/DetailsHeader";
-
-const Details = ({ route }) => {
-  const data = route.params;
-  return (
-    <SafeAreaView style={{ flex: 1, padding: SIZES.font }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Text
-          style={{
-            fontFamily: FONTS.medium,
-            marginBottom: FONTS.extraLarge,
-          }}
-        >
-          {data.details}
-        </Text>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+import { FocusedStatusBar } from "../components";
+import Details from "../components/Details";
 
 const DataStructure = ({ route, navigation }) => {
   const { data } = route.params;
@@ -31,6 +15,11 @@ const DataStructure = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <FocusedStatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent={true}
+      />
       <DetailsHeader data={data} navigation={navigation} title={data.name} />
 
       <Tab.Navigator

@@ -24,6 +24,7 @@ import dijkstra from "../assets/images/dijkstra.gif";
 import expand from "../assets/icons/expand.png";
 import copy from "../assets/icons/copy.png";
 import success from "../assets/icons/success.png";
+import info from "../assets/icons/info.png";
 
 export default {
   dataStrucutres,
@@ -52,4 +53,5 @@ export default {
   expand,
   copy,
   success,
+  info,
 };

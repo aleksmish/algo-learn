@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FocusedStatusBar } from "../components";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
@@ -47,7 +47,6 @@ const DataStructures = ({ route, navigation }) => {
       />
 
       <FlatList
-        style={{ marginTop: SIZES.base }}
         data={data.topics}
         renderItem={({ item }) => <ListElementDataStructure data={item} />}
         keyExtractor={(item) => item.name}
