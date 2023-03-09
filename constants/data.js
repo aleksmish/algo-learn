@@ -590,8 +590,8 @@ def dijkstra(graph, start):
 return dist`,
           image: assets.dijkstra,
           complexities: [
-            "O((V + E) log V)",
-            "O((V + E) log V)",
+            "O\n((V + E) log V)",
+            "O\n((V + E) log V)",
             "O(V + E)",
             "O(V)",
           ],

@@ -1,10 +1,8 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import FocusedStatusBar from "../components/FocusedStatusBar";
 import { COLORS, SectionData } from "../constants";
 import { FlatList, View } from "react-native";
-import HomeHeader from "../components/HomeHeader";
-import Section from "../components/Section";
+import { FocusedStatusBar, HomeHeader, Section } from "../components";
 
 const Home = () => {
   return (

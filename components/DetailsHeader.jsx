@@ -1,8 +1,7 @@
 import { Image, StatusBar, Text, View } from "react-native";
 import { CircleButton } from "./Button";
 import Modal from "react-native-modal";
-import { SIZES, assets } from "../constants";
-import { COLORS, FONTS } from "../constants/theme";
+import { SIZES, assets, COLORS, FONTS } from "../constants";
 import { useState } from "react";
 
 const Information = ({ data, toggleModal, isModalVisible }) => {
@@ -56,6 +55,8 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
                 borderColor: "#ffffff8d",
                 borderEndWidth: 0,
                 padding: SIZES.font,
+                borderTopLeftRadius: SIZES.font,
+                borderBottomLeftRadius: SIZES.font
               }}
             >
               <Text
@@ -101,6 +102,8 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
                 borderWidth: 0.5,
                 borderColor: "#ffffff8d",
                 padding: SIZES.font,
+                borderTopRightRadius: SIZES.font,
+                borderBottomRightRadius: SIZES.font
               }}
             >
               <Text
@@ -144,6 +147,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
               borderColor: "#ffffff8d",
               margin: SIZES.base,
               padding: SIZES.base,
+              borderRadius: SIZES.font
             }}
           >
             <Text

@@ -3,10 +3,8 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
-import Code from "../components/Code";
-import DetailsHeader from "../components/DetailsHeader";
 import { FocusedStatusBar } from "../components";
-import Details from "../components/Details";
+import { Code, DetailsHeader, Details } from "../components";
 
 const DataStructure = ({ route, navigation }) => {
   const { data } = route.params;

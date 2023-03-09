@@ -3,10 +3,8 @@ import React from "react";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Code from "../components/Code";
-import DetailsHeader from "../components/DetailsHeader";
 import { FocusedStatusBar } from "../components";
-import Details from "../components/Details";
+import { Code, DetailsHeader, Details } from "../components";
 
 const Algorithm = ({ route, navigation }) => {
   const { data } = route.params;

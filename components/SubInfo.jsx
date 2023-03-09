@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { COLORS, FONTS, SIZES } from "../constants";
+import { COLORS, FONTS } from "../constants";
 
 export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
   return (
@@ -24,18 +24,5 @@ export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
         {subTitle}
       </Text>
     </View>
-  );
-};
-
-export const SubInfo = () => {
-  return (
-    <View
-      style={{
-        width: "100%",
-        padding: SIZES.font,
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-    ></View>
   );
 };

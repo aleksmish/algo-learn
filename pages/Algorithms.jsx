@@ -1,26 +1,24 @@
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { FocusedStatusBar } from "../components";
 import { COLORS, FONTS, SIZES } from "../constants";
-import DetailsHeader from "../components/DetailsHeader";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SHADOWS } from "../constants/theme";
+import { FocusedStatusBar, DetailsHeader } from "../components";
 
 const TypeOfAlgorithm = ({ type, data }) => {
   return (
     <View style={{ marginVertical: SIZES.base }}>
       <Text
         style={{
-          fontFamily: FONTS.semiBold,
+          fontFamily: FONTS.medium,
           fontSize: SIZES.large,
-          color: COLORS.primary,
+          color: COLORS.dark,
           textAlign: "center",
         }}
       >
         {type}
       </Text>
-
       <FlatList
         data={data[type]}
         renderItem={({ item }) => <ListElementAlgorithm data={item} />}
