@@ -28,7 +28,7 @@ export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
   );
 };
 
-export const ModalButton = ({ imgUrl, handlePress, ...props }) => {
+export const CodeButton = ({ imgUrl, handlePress, ...props }) => {
   return (
     <TouchableOpacity
       style={{
@@ -56,7 +56,13 @@ export const ModalButton = ({ imgUrl, handlePress, ...props }) => {
   );
 };
 
-export const RectButton = ({ minWidth, fontSize, handlePress }) => {
+export const RectButton = ({
+  minWidth,
+  fontSize,
+  handlePress,
+  text,
+  ...props
+}) => {
   return (
     <TouchableOpacity
       style={{
@@ -64,6 +70,7 @@ export const RectButton = ({ minWidth, fontSize, handlePress }) => {
         borderRadius: SIZES.extraLarge,
         minWidth: minWidth,
         padding: SIZES.small,
+        ...props,
       }}
       onPress={handlePress}
     >
@@ -75,7 +82,7 @@ export const RectButton = ({ minWidth, fontSize, handlePress }) => {
           textAlign: "center",
         }}
       >
-        Go
+        {text}
       </Text>
     </TouchableOpacity>
   );

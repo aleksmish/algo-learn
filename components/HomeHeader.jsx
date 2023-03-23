@@ -1,8 +1,11 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
+import { useTranslation } from "react-i18next";
 
-const HomeHeader = () => {
+const HomeHeader = ({ toggleDropdown }) => {
+  const { t } = useTranslation();
+
   return (
     <View
       style={{
@@ -37,6 +40,15 @@ const HomeHeader = () => {
             AlgoLearn
           </Text>
         </View>
+        <View>
+          <TouchableOpacity onPress={toggleDropdown}>
+            <Image
+              source={assets.languages}
+              tintColor={COLORS.light}
+              style={{ width: 30, height: 30 }}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={{ marginVertical: SIZES.font }}>
@@ -47,7 +59,7 @@ const HomeHeader = () => {
             color: COLORS.light,
           }}
         >
-          Learn Data Structures and Algorithms interactively
+          {t("Learn Data Structures and Algorithms interactively")}
         </Text>
       </View>
     </View>

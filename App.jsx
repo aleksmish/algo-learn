@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import { SectionData } from "./constants";
 import DataStructure from "./pages/DataStructure";
 import Algorithm from "./pages/Algorithm";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,25 +36,27 @@ export default function App() {
     .map((algorithm) => algorithm.name);
 
   return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator
-        screenOptions={{ headerShown: false }}
-        initialRouteName="Home"
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Algorithms" component={Algorithms} />
-        <Stack.Screen name="Data Structures" component={DataStructures} />
-        {SectionData[0].topics.map((item) => (
-          <Stack.Screen
-            key={item.name}
-            name={item.name}
-            component={DataStructure}
-          />
-        ))}
-        {algorithms.map((item) => (
-          <Stack.Screen key={item} name={item} component={Algorithm} />
-        ))}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <I18nextProvider i18n={i18n}>
+      <NavigationContainer theme={theme}>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="Home"
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Algorithms" component={Algorithms} />
+          <Stack.Screen name="Data Structures" component={DataStructures} />
+          {SectionData[0].topics.map((item) => (
+            <Stack.Screen
+              key={item.name}
+              name={item.name}
+              component={DataStructure}
+            />
+          ))}
+          {algorithms.map((item) => (
+            <Stack.Screen key={item} name={item} component={Algorithm} />
+          ))}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </I18nextProvider>
   );
 }

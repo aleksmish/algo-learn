@@ -1,25 +1,17 @@
 import { Image, StatusBar, Text, View } from "react-native";
 import { CircleButton } from "./Button";
-import Modal from "react-native-modal";
 import { SIZES, assets, COLORS, FONTS } from "../constants";
 import { useState } from "react";
+import ModalWindow from "./ModalWindow";
 
 const Information = ({ data, toggleModal, isModalVisible }) => {
   return (
-    <Modal
-      isVisible={isModalVisible}
-      onBackButtonPress={toggleModal}
-      onBackdropPress={toggleModal}
-      animationIn={"zoomIn"}
-      animationOut={"zoomOut"}
-      animationInTiming={50}
-      animationOutTiming={50}
-    >
+    <ModalWindow isModalVisible={isModalVisible} toggleModal={toggleModal}>
       <View
         style={{
           display: "flex",
           flexDirection: "column",
-          backgroundColor: "#282c34",
+          backgroundColor: COLORS.charcoal,
           padding: SIZES.base,
           borderRadius: SIZES.font,
           justifyContent: "center",
@@ -56,7 +48,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
                 borderEndWidth: 0,
                 padding: SIZES.font,
                 borderTopLeftRadius: SIZES.font,
-                borderBottomLeftRadius: SIZES.font
+                borderBottomLeftRadius: SIZES.font,
               }}
             >
               <Text
@@ -103,7 +95,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
                 borderColor: "#ffffff8d",
                 padding: SIZES.font,
                 borderTopRightRadius: SIZES.font,
-                borderBottomRightRadius: SIZES.font
+                borderBottomRightRadius: SIZES.font,
               }}
             >
               <Text
@@ -147,7 +139,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
               borderColor: "#ffffff8d",
               margin: SIZES.base,
               padding: SIZES.base,
-              borderRadius: SIZES.font
+              borderRadius: SIZES.font,
             }}
           >
             <Text
@@ -162,7 +154,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
           </View>
         </View>
       </View>
-    </Modal>
+    </ModalWindow>
   );
 };
 
