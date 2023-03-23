@@ -55,6 +55,7 @@ const Section = ({ data }) => {
           <RectButton
             minWidth={120}
             fontSize={SIZES.font}
+            text="Go"
             handlePress={() => navigation.navigate(data.title, { data })}
           />
         </View>

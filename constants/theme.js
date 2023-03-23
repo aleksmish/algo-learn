@@ -5,6 +5,7 @@ export const COLORS = {
   accent: "#696969",
   light: "#ffffff",
   dark: "#000000",
+  charcoal: "#282c34",
 };
 
 export const SIZES = {

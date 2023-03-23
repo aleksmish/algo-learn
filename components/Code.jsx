@@ -1,62 +1,69 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { SIZES, assets } from "../constants";
-import Modal from "react-native-modal";
-import { ModalButton } from "./Button";
+import { View, Text, StyleSheet, ScrollView, ToastAndroid } from "react-native";
+import { COLORS, SIZES, assets } from "../constants";
+import { CodeButton } from "./Button";
 import * as Clipboard from "expo-clipboard";
+import ModalWindow from "./ModalWindow";
 
-const ExpandedCode = ({ data, toggleModal, isModalVisible }) => {
+const ModalCode = ({ data, toggleModal, isModalVisible }) => {
   return (
-    <Modal
-      isVisible={isModalVisible}
-      onBackButtonPress={toggleModal}
-      onBackdropPress={toggleModal}
-      animationIn={"zoomIn"}
-      animationOut={"zoomOut"}
-      animationInTiming={50}
-      animationOutTiming={50}
-    >
+    <ModalWindow isModalVisible={isModalVisible} toggleModal={toggleModal}>
       <View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <CodeBlock code={data.code} />
         </ScrollView>
       </View>
-    </Modal>
+    </ModalWindow>
   );
 };
 
 const Code = ({ route }) => {
   const data = route.params;
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [isTextCopied, setTextCopied] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isTextCopied, setIsTextCopied] = useState(false);
+  const [timeoutInstance, setTimeoutInstance] = useState(null);
 
   const copyToClipboard = async (text) => {
-    setTextCopied(true);
+    if (timeoutInstance) {
+      clearTimeout(timeoutInstance);
+    }
+
+    ToastAndroid.showWithGravity(
+      "Copied",
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM
+    );
+
+    setIsTextCopied(true);
+
     await Clipboard.setStringAsync(text);
-    setTimeout(() => {
-      setTextCopied(false);
-    }, 2500);
+
+    setTimeoutInstance(
+      setTimeout(() => {
+        setIsTextCopied(false);
+      }, 2500)
+    );
   };
 
   const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+    setIsModalVisible(!isModalVisible);
   };
 
   return (
     <View style={{ flex: 1, padding: SIZES.base / 2 }}>
-      <ModalButton
+      <CodeButton
         imgUrl={isTextCopied ? assets.success : assets.copy}
         handlePress={() => copyToClipboard(data.code)}
         top={SIZES.font}
         right={SIZES.font * 4.5}
       />
-      <ModalButton
+      <CodeButton
         imgUrl={assets.expand}
         handlePress={toggleModal}
         top={SIZES.font}
         right={SIZES.font}
       />
-      <ExpandedCode
+      <ModalCode
         data={data}
         toggleModal={toggleModal}
         isModalVisible={isModalVisible}
@@ -102,7 +109,7 @@ const CodeBlock = ({ code }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#282c34",
+    backgroundColor: COLORS.charcoal,
     padding: SIZES.base,
     borderRadius: SIZES.font,
   },

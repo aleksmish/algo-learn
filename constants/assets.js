@@ -25,6 +25,9 @@ import expand from "../assets/icons/expand.png";
 import copy from "../assets/icons/copy.png";
 import success from "../assets/icons/success.png";
 import info from "../assets/icons/info.png";
+import ru from "../assets/icons/ru.png";
+import eng from "../assets/icons/eng.png";
+import languages from "../assets/icons/languages.png";
 
 export default {
   dataStrucutres,
@@ -54,4 +57,7 @@ export default {
   copy,
   success,
   info,
+  ru,
+  eng,
+  languages,
 };
