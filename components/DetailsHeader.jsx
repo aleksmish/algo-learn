@@ -3,8 +3,11 @@ import { CircleButton } from "./Button";
 import { SIZES, assets, COLORS, FONTS } from "../constants";
 import { useState } from "react";
 import ModalWindow from "./ModalWindow";
+import { useTranslation } from "react-i18next";
 
 const Information = ({ data, toggleModal, isModalVisible }) => {
+  const { t } = useTranslation()
+
   return (
     <ModalWindow isModalVisible={isModalVisible} toggleModal={toggleModal}>
       <View
@@ -30,7 +33,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
           }}
         >
           <Text style={{ color: COLORS.light, fontSize: SIZES.medium }}>
-            Time Complexity
+            {t("Time Complexity")}
           </Text>
           <View
             style={{
@@ -54,11 +57,11 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
               <Text
                 style={{
                   color: COLORS.light,
-                  fontSize: SIZES.medium,
+                  fontSize: SIZES.font,
                   marginBottom: SIZES.base,
                 }}
               >
-                Worst
+                {t("Worst")}
               </Text>
               <Text style={{ color: COLORS.light, fontSize: SIZES.small }}>
                 {data[0]}
@@ -77,11 +80,11 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
               <Text
                 style={{
                   color: COLORS.light,
-                  fontSize: SIZES.medium,
+                  fontSize: SIZES.font,
                   marginBottom: SIZES.base,
                 }}
               >
-                Average
+                {t("Average")}
               </Text>
               <Text style={{ color: COLORS.light, fontSize: SIZES.small }}>
                 {data[1]}
@@ -101,11 +104,11 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
               <Text
                 style={{
                   color: COLORS.light,
-                  fontSize: SIZES.medium,
+                  fontSize: SIZES.font,
                   marginBottom: SIZES.base,
                 }}
               >
-                Best
+                {t("Best")}
               </Text>
               <Text style={{ color: COLORS.light, fontSize: SIZES.small }}>
                 {data[2]}
@@ -131,7 +134,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
           }}
         >
           <Text style={{ color: COLORS.light, fontSize: SIZES.medium }}>
-            Space Complexity
+            {t("Space Complexity")}
           </Text>
           <View
             style={{
@@ -159,6 +162,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
 };
 
 const DetailsHeader = ({ data, navigation, title, hasInfo }) => {
+  const { t } = useTranslation()
   const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleModal = () => {
@@ -188,7 +192,7 @@ const DetailsHeader = ({ data, navigation, title, hasInfo }) => {
           color: COLORS.primary,
         }}
       >
-        {title}
+        {t(title)}
       </Text>
 
       <CircleButton

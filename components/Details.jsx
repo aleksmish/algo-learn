@@ -1,9 +1,12 @@
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
 import { FONTS, SIZES } from "../constants";
+import { useTranslation } from "react-i18next";
 
 const Details = ({ route }) => {
   const data = route.params;
+  const { t } = useTranslation()
+
   return (
     <View style={{ flex: 1, padding: SIZES.font }}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -13,7 +16,7 @@ const Details = ({ route }) => {
             marginBottom: FONTS.extraLarge,
           }}
         >
-          {data.details}
+          {t(data.details)}
         </Text>
       </ScrollView>
     </View>

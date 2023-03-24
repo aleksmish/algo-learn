@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
 import Algorithms from "./pages/Algorithms";
 import DataStructures from "./pages/DataStructures";
 import Home from "./pages/Home";
-import { SectionData } from "./constants";
+import { sectionData } from "./constants";
 import DataStructure from "./pages/DataStructure";
 import Algorithm from "./pages/Algorithm";
 import { I18nextProvider } from "react-i18next";
@@ -31,7 +31,7 @@ export default function App() {
 
   if (!loaded) return null;
 
-  const algorithms = Object.values(SectionData[1].topics)
+  const algorithms = Object.values(sectionData[1].topics)
     .reduce((prev, current) => prev.concat(Object.values(current)), [])
     .map((algorithm) => algorithm.name);
 
@@ -45,7 +45,7 @@ export default function App() {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Algorithms" component={Algorithms} />
           <Stack.Screen name="Data Structures" component={DataStructures} />
-          {SectionData[0].topics.map((item) => (
+          {sectionData[0].topics.map((item) => (
             <Stack.Screen
               key={item.name}
               name={item.name}

@@ -4,6 +4,7 @@ import { COLORS, SIZES, assets } from "../constants";
 import { CodeButton } from "./Button";
 import * as Clipboard from "expo-clipboard";
 import ModalWindow from "./ModalWindow";
+import { useTranslation } from "react-i18next";
 
 const ModalCode = ({ data, toggleModal, isModalVisible }) => {
   return (
@@ -19,6 +20,7 @@ const ModalCode = ({ data, toggleModal, isModalVisible }) => {
 
 const Code = ({ route }) => {
   const data = route.params;
+  const { t } = useTranslation()
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isTextCopied, setIsTextCopied] = useState(false);
   const [timeoutInstance, setTimeoutInstance] = useState(null);
@@ -29,7 +31,7 @@ const Code = ({ route }) => {
     }
 
     ToastAndroid.showWithGravity(
-      "Copied",
+      t("Copied"),
       ToastAndroid.SHORT,
       ToastAndroid.BOTTOM
     );

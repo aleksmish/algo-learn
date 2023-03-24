@@ -5,9 +5,11 @@ import { COLORS, FONTS, SIZES } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 import { SHADOWS } from "../constants/theme";
 import { FocusedStatusBar, DetailsHeader } from "../components";
+import { useTranslation } from "react-i18next";
 
 const ListElementDataStructure = ({ data }) => {
   const navigation = useNavigation();
+  const { t } = useTranslation()
 
   return (
     <TouchableOpacity onPress={() => navigation.navigate(data.name, { data })}>
@@ -27,7 +29,7 @@ const ListElementDataStructure = ({ data }) => {
             color: COLORS.dark,
           }}
         >
-          {data.name}
+          {t(data.name)}
         </Text>
       </View>
     </TouchableOpacity>
@@ -36,6 +38,7 @@ const ListElementDataStructure = ({ data }) => {
 
 const DataStructures = ({ route, navigation }) => {
   const { data } = route.params;
+  const { t } = useTranslation()
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -56,7 +59,7 @@ const DataStructures = ({ route, navigation }) => {
             <DetailsHeader
               data={data}
               navigation={navigation}
-              title="Pick a Data Structure"
+              title={t("Pick a Data Structure")}
             />
           </React.Fragment>
         )}

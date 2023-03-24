@@ -4,10 +4,12 @@ import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS } from "../constants";
 import { Title } from "./SubInfo";
 import { RectButton } from "./Button";
+import { useTranslation } from "react-i18next";
 
 const Section = ({ data }) => {
   const navigation = useNavigation();
-
+  const { t } = useTranslation()
+  
   return (
     <View
       style={{
@@ -55,7 +57,7 @@ const Section = ({ data }) => {
           <RectButton
             minWidth={120}
             fontSize={SIZES.font}
-            text="Go"
+            text={t("Go")}
             handlePress={() => navigation.navigate(data.title, { data })}
           />
         </View>

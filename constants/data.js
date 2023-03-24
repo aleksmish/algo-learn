@@ -1,13 +1,13 @@
 import assets from "./assets";
 
-export const SectionData = [
+export const sectionData = [
   {
     title: "Data Structures",
     info: "Data structures are ways of organizing and storing data efficiently. Examples include arrays, linked lists, trees, and graphs.",
     topics: [
       {
         name: "Stack",
-        details: `A stack is a linear data structure that follows the Last In First Out (LIFO) principle. In a stack, elements are added and removed from the same end, called the top of the stack. 
+        details: `A stack is a linear data structure that follows the Last In First Out (LIFO) principle. In a stack, elements are added and removed from the same end, called the top of the stack.
         
 The operations that can be performed on a stack include:
 

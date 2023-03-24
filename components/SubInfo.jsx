@@ -1,8 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { COLORS, FONTS } from "../constants";
+import { useTranslation } from "react-i18next";
 
 export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
+  const { t } = useTranslation()
+
   return (
     <View>
       <Text
@@ -12,7 +15,7 @@ export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
           color: COLORS.primary,
         }}
       >
-        {title}
+        {t(title)}
       </Text>
       <Text
         style={{
@@ -21,7 +24,7 @@ export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
           color: COLORS.dark,
         }}
       >
-        {subTitle}
+        {t(subTitle)}
       </Text>
     </View>
   );

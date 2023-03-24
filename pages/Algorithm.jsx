@@ -5,9 +5,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FocusedStatusBar } from "../components";
 import { Code, DetailsHeader, Details } from "../components";
+import { useTranslation } from "react-i18next";
 
 const Algorithm = ({ route, navigation }) => {
   const { data } = route.params;
+  const { t } = useTranslation()
   const Tab = createBottomTabNavigator();
 
   return (
@@ -34,10 +36,10 @@ const Algorithm = ({ route, navigation }) => {
           tabBarActiveBackgroundColor: COLORS.primary,
           tabBarInactiveBackgroundColor: COLORS.light,
         }}
-        initialRouteName="Details"
+        initialRouteName={t("Details")}
       >
         <Tab.Screen
-          name="Details"
+          name={t("Details")}
           component={Details}
           initialParams={data}
           options={{
@@ -54,7 +56,7 @@ const Algorithm = ({ route, navigation }) => {
           }}
         />
         <Tab.Screen
-          name="Code"
+          name={t("Code")}
           component={Code}
           initialParams={data}
           options={{

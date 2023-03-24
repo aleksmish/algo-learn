@@ -5,8 +5,11 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SHADOWS } from "../constants/theme";
 import { FocusedStatusBar, DetailsHeader } from "../components";
+import { useTranslation } from "react-i18next";
 
 const TypeOfAlgorithm = ({ type, data }) => {
+  const { t } = useTranslation()
+  
   return (
     <View style={{ marginVertical: SIZES.base }}>
       <Text
@@ -17,7 +20,7 @@ const TypeOfAlgorithm = ({ type, data }) => {
           textAlign: "center",
         }}
       >
-        {type}
+        {t(type)}
       </Text>
       <FlatList
         data={data[type]}
@@ -32,6 +35,8 @@ const TypeOfAlgorithm = ({ type, data }) => {
 
 const ListElementAlgorithm = ({ data }) => {
   const navigation = useNavigation();
+  const { t } = useTranslation()
+
   return (
     <TouchableOpacity onPress={() => navigation.navigate(data.name, { data })}>
       <View
@@ -50,7 +55,7 @@ const ListElementAlgorithm = ({ data }) => {
             color: COLORS.dark,
           }}
         >
-          {data.name}
+          {t(data.name)}
         </Text>
       </View>
     </TouchableOpacity>
@@ -59,6 +64,8 @@ const ListElementAlgorithm = ({ data }) => {
 
 const Algorithms = ({ route, navigation }) => {
   const { data } = route.params;
+  const { t } = useTranslation()
+  
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FocusedStatusBar
@@ -80,7 +87,7 @@ const Algorithms = ({ route, navigation }) => {
             <DetailsHeader
               data={data}
               navigation={navigation}
-              title="Pick an Algorithm"
+              title={t("Pick an Algorithm")}
             />
           </React.Fragment>
         )}

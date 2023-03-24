@@ -13,7 +13,7 @@ const Dropdown = ({ currentLanguage, changeLanguage, isDropdownVisible }) => {
           position: "absolute",
           top: 85,
           right: 10,
-          width: 160,
+          width: 170,
           backgroundColor: COLORS.charcoal,
           borderRadius: SIZES.font,
           padding: SIZES.medium,
@@ -31,7 +31,8 @@ const Dropdown = ({ currentLanguage, changeLanguage, isDropdownVisible }) => {
                 flexDirection: "row",
                 alignItems: "center",
                 padding: SIZES.base,
-                borderRadius: SIZES.base,
+                borderRadius: SIZES.font,
+                overflow: "hidden",
               },
               ind !== languages.length - 1 && { marginBottom: 5 },
               lang === currentLanguage && { backgroundColor: COLORS.primary },
@@ -42,6 +43,7 @@ const Dropdown = ({ currentLanguage, changeLanguage, isDropdownVisible }) => {
               style={{
                 width: 20,
                 height: 20,
+                marginLeft: SIZES.base
               }}
             />
             <Text
