@@ -13,7 +13,7 @@ To install the app, follow these steps:
 1. Clone the repository to your local machine.
 2. Run npm install to install the dependencies.
 3. Connect your Android or iOS device to your computer.
-4. Run npx react-native run-android or npx react-native run-ios to build and run the app on your device.
+4. Run `npx react-native run-android` or `npx react-native run-ios` to build and run the app on your device.
 ## Usage
 To use the app, follow these steps:
 
@@ -29,7 +29,7 @@ We welcome contributions to the app! To contribute, follow these steps:
 3. Commit your changes and push to your fork.
 4. Create a pull request to merge your changes into the main branch.
 ## Credits
-The app was developed by printw as a project for the "development of mobile applications" course at college.
+The app was developed by [printw](https://github.com/printw) as a project for the "development of mobile applications" course at college.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
