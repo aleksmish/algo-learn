@@ -8,8 +8,8 @@ import { FocusedStatusBar, DetailsHeader } from "../components";
 import { useTranslation } from "react-i18next";
 
 const TypeOfAlgorithm = ({ type, data }) => {
-  const { t } = useTranslation()
-  
+  const { t } = useTranslation();
+
   return (
     <View style={{ marginVertical: SIZES.base }}>
       <Text
@@ -35,7 +35,7 @@ const TypeOfAlgorithm = ({ type, data }) => {
 
 const ListElementAlgorithm = ({ data }) => {
   const navigation = useNavigation();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <TouchableOpacity onPress={() => navigation.navigate(data.name, { data })}>
@@ -64,8 +64,8 @@ const ListElementAlgorithm = ({ data }) => {
 
 const Algorithms = ({ route, navigation }) => {
   const { data } = route.params;
-  const { t } = useTranslation()
-  
+  const { t } = useTranslation();
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FocusedStatusBar

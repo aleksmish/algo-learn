@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const ListElementDataStructure = ({ data }) => {
   const navigation = useNavigation();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <TouchableOpacity onPress={() => navigation.navigate(data.name, { data })}>
@@ -38,7 +38,7 @@ const ListElementDataStructure = ({ data }) => {
 
 const DataStructures = ({ route, navigation }) => {
   const { data } = route.params;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

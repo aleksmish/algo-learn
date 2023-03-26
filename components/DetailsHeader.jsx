@@ -6,7 +6,7 @@ import ModalWindow from "./ModalWindow";
 import { useTranslation } from "react-i18next";
 
 const Information = ({ data, toggleModal, isModalVisible }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <ModalWindow isModalVisible={isModalVisible} toggleModal={toggleModal}>
@@ -162,7 +162,7 @@ const Information = ({ data, toggleModal, isModalVisible }) => {
 };
 
 const DetailsHeader = ({ data, navigation, title, hasInfo }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleModal = () => {

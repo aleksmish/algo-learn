@@ -4,7 +4,7 @@ import { COLORS, FONTS } from "../constants";
 import { useTranslation } from "react-i18next";
 
 export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <View>

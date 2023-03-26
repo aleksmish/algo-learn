@@ -27,6 +27,7 @@ const Home = () => {
   };
 
   const changeLanguage = async (lang) => {
+    setIsDropdownVisible(!isDropdownVisible)
     await setItemToAyncStorage("lang", lang);
     setLang(lang);
     i18n.changeLanguage(lang);

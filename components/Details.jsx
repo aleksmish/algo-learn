@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const Details = ({ route }) => {
   const data = route.params;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <View style={{ flex: 1, padding: SIZES.font }}>

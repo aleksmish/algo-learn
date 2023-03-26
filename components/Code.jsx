@@ -20,7 +20,7 @@ const ModalCode = ({ data, toggleModal, isModalVisible }) => {
 
 const Code = ({ route }) => {
   const data = route.params;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isTextCopied, setIsTextCopied] = useState(false);
   const [timeoutInstance, setTimeoutInstance] = useState(null);

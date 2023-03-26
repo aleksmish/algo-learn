@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const DataStructure = ({ route, navigation }) => {
   const { data } = route.params;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const Tab = createBottomTabNavigator();
 
   return (
