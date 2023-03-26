@@ -1,4 +1,4 @@
-# Algorithm and Data Structures App
+# Algorithms and Data Structures App
 This is an Android app that provides a comprehensive guide on algorithms and data structures. It is designed for beginners who want to learn more about these fundamental concepts in computer science.
 
 ## Features
